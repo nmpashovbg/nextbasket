@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Contracts\RabbitMQServiceInterface;
 use App\Events\UserCreated;
 use App\Contracts\LoggerInterface;
+use App\Jobs\UserQueue;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
 class UserController extends Controller
 {
-    public function __construct(protected LoggerInterface $logger)
+    public function __construct(protected LoggerInterface $logger, protected RabbitMQServiceInterface $rabbitMQService)
     {
+        //
     }
 
     /**
@@ -38,8 +41,7 @@ class UserController extends Controller
         );
 
         $this->logger->log($logMessage);
-
-        event(new UserCreated($request->all()));
+        $this->rabbitMQService->publish($logMessage);
 
         return response()->json(['message' => 'User created successfully']);
     }

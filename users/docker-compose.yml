@@ -22,50 +22,23 @@ services:
             - '.:/var/www/html'
         networks:
             - sail
-        depends_on:
-            - redis
+    ### RabbitMQ ###
     rabbitmq:
-        image: rabbitmq:3.8
+        build: ./rabbitmq
+        ports:
+            - "${RABBITMQ_HOST_PORT}:5672"
+            - "${RABBITMQ_MANAGEMENT_HTTP_HOST_PORT}:15672"
+            - "${RABBITMQ_MANAGEMENT_HTTPS_HOST_PORT}:15671"
+        privileged: true
         environment:
-            RABBITMQ_DEFAULT_USER: guest
-            RABBITMQ_DEFAULT_PASSWORD: guest
-            RABBITMQ_DEFAULT_VHOST: /
-        ports:
-            - "15671:15671"
-            - "15672:15672"
-            - "5671:5671"
-            - "5672:5672"
-
-    rabbitmq-management:
-        image: rabbitmq:management
-        environment:
-            RABBITMQ_DEFAULT_USER: guest
-            RABBITMQ_DEFAULT_PASSWORD: guest
-            RABBITMQ_DEFAULT_VHOST: /
-        ports:
-            - 15673:15673
-            - 15674:15674
-            - 5673:5673
-            - 5674:5674
-    redis:
-        image: 'redis:alpine'
-        ports:
-            - '${FORWARD_REDIS_PORT:-6379}:6379'
+            - RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER}
+            - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}
+        depends_on:
+            - php-fpm72
         volumes:
-            - 'sail-redis:/data'
+            - $PWD/rabbitmq/data:/var/lib/rabbitmq
         networks:
             - sail
-        healthcheck:
-            test:
-                - CMD
-                - redis-cli
-                - ping
-            retries: 3
-            timeout: 5s
 networks:
     sail:
         driver: bridge
-volumes:
-    sail-redis:
-        driver: local
-
