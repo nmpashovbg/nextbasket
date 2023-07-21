@@ -58,3 +58,10 @@ This will start the command listener and allow the Notifications microservice to
 Now both microservices are set up and ready to be used.
 
 
+## Using Postman to Create a New User
+
+1. **URL:** Open Postman and hit the following URL with a POST request:
+
+        {"email": "npashov@gmail.com","firstName": "Nikola","lastName": "Pashov"}
+
+
