@@ -62,6 +62,7 @@ Now both microservices are set up and ready to be used.
 
 1. **URL:** Open Postman and hit the following URL with a POST request:
 
-        {"email": "npashov@gmail.com","firstName": "Nikola","lastName": "Pashov"}
+        URL: http://localhost:8989/api/users
+        Body: {"email": "npashov@gmail.com","firstName": "Nikola","lastName": "Pashov"}
 
 
