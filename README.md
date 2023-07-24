@@ -67,7 +67,7 @@ Now both microservices are set up and ready to be used.
 
 ## How to run the tests?
 
-1. **URL:** Navigate to the users or notification project and run next command:
+1.  Navigate to the users or notification project and run next command:
 
          php artisan test
 
