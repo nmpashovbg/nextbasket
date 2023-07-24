@@ -65,4 +65,10 @@ Now both microservices are set up and ready to be used.
         URL: http://localhost:8989/api/users
         Body: {"email": "npashov@gmail.com","firstName": "Nikola","lastName": "Pashov"}
 
+## How to run the tests?
+
+1. **URL:** Navigate to the users or notification project and run next command:
+
+         php artisan test
+
 
