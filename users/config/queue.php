@@ -72,7 +72,7 @@ return [
         ],
         'rabbitmq' => [
             'driver' => 'rabbitmq',
-            'worker' => env('RABBITMQ_WORKER', 'horizon'),
+            'worker' => env('RABBITMQ_WORKER', 'default'),
             'dsn' => env('RABBITMQ_DSN', null),
             /*
              * Could be one a class that implements \Interop\Amqp\AmqpConnectionFactory for example:

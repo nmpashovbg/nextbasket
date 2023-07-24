@@ -2,8 +2,7 @@
 declare(strict_types=1);
 namespace App\Console\Commands;
 
-use App\Contracts\LoggerInterface;
-use App\Contracts\RabbitMQServiceInterface;
+use App\Contracts\MessageBrokerInterface;
 use Illuminate\Console\Command;
 
 class ConsumerCommand extends Command
@@ -22,7 +21,7 @@ class ConsumerCommand extends Command
      */
     protected $description = 'RabbitMQ Consumer';
 
-    public function __construct(protected RabbitMQServiceInterface $rabbitMQService, protected LoggerInterface $logger)
+    public function __construct(protected MessageBrokerInterface $rabbitMQService)
     {
         parent::__construct();
     }
@@ -32,7 +31,7 @@ class ConsumerCommand extends Command
      */
     public function handle(): int
     {
-        $this->rabbitMQService->consume($this->logger);
+        $this->rabbitMQService->consume();
 
         return Command::SUCCESS;
     }

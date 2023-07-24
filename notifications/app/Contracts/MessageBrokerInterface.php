@@ -7,7 +7,7 @@ namespace App\Contracts;
  * Interface LoggerInterface
  * @package App\Services
  */
-interface RabbitMQServiceInterface
+interface MessageBrokerInterface
 {
-    public function consume(LoggerInterface $logger): void;
+    public function consume(): void;
 }

@@ -1,20 +1,21 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Contracts\RabbitMQServiceInterface;
+use App\Contracts\MessageBrokerInterface;
 use App\Events\UserCreated;
 use App\Contracts\LoggerInterface;
 use App\Jobs\UserQueue;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
+use PhpAmqpLib\Message\AMQPMessage;
 
 class UserController extends Controller
 {
-    public function __construct(protected LoggerInterface $logger, protected RabbitMQServiceInterface $rabbitMQService)
+    public function __construct(protected LoggerInterface $logger, protected MessageBrokerInterface $messageBroker)
     {
-        //
     }
 
     /**
@@ -33,15 +34,20 @@ class UserController extends Controller
         ]);
 
         $logMessage = sprintf(
-            "[%s] User created: %s %s [%s]",
-            now()->format('Y-m-d H:i:s'),
+            "User created: %s %s [%s]",
             $request->get('firstName'),
             $request->get('lastName'),
             $request->get('email')
         );
 
         $this->logger->log($logMessage);
-        $this->rabbitMQService->publish($logMessage);
+        $this->messageBroker->publish(
+            new AMQPMessage(json_encode([
+                'firstName' => $request->get('firstName'),
+                'lastName' => $request->get('lastName'),
+                'email' => $request->get('email')
+            ]))
+        );
 
         return response()->json(['message' => 'User created successfully']);
     }

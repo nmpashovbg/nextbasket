@@ -126,6 +126,12 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+
+        'nextBasket' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/user_creation.log'),
+            'level' => 'debug',
+        ],
     ],
 
 ];

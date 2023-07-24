@@ -1,9 +1,10 @@
 <?php
 declare(strict_types=1);
+
 namespace App\Services;
 
 use App\Contracts\LoggerInterface;
-use Illuminate\Support\Facades\Log;
+use Psr\Log\LoggerInterface as PSRLoggerInterface;
 
 /**
  * Class LoggerService
@@ -11,11 +12,13 @@ use Illuminate\Support\Facades\Log;
  */
 class LoggerService implements LoggerInterface
 {
+    public function __construct(protected PSRLoggerInterface $logger)
+    {
+        //
+    }
+
     public function log(string $data): void
     {
-        Log::build([
-            'driver' => 'single',
-            'path' => storage_path('logs/user_creation.log'),
-        ])->info($data);
+        $this->logger->channel('nextBasket')->log('info', $data);
     }
 }
