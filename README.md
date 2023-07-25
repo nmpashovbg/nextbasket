@@ -57,6 +57,8 @@ Open the `.env` file with your favorite editor and set the values for `RABBITMQ_
 Once the Docker containers are up and running, you can enable the RabbitMQ command listener for the Notifications microservice. Run the following command within the `notifications` folder:
         ```php artisan rabbitmq:consumer```
 
+![Screenshot 2023-07-25 at 20 47 48](https://github.com/nmpashovbg/nextbasket/assets/140022499/47bc6d86-1046-441e-8586-a0539c426fae)
+
 This will start the command listener and allow the Notifications microservice to communicate with RabbitMQ.
 
 Now both microservices are set up and ready to be used.
