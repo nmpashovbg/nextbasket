@@ -33,8 +33,6 @@ services:
         environment:
             - RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER}
             - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}
-        depends_on:
-            - php-fpm72
         volumes:
             - $PWD/rabbitmq/data:/var/lib/rabbitmq
         networks:
