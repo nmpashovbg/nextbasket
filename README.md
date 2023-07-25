@@ -69,13 +69,16 @@ Now both microservices are set up and ready to be used.
         URL: http://localhost:8989/api/users
         Body: {"email": "npashov@gmail.com","firstName": "Nikola","lastName": "Pashov"}
 
+        ![Screenshot 2023-07-25 at 20 45 29](https://github.com/nmpashovbg/nextbasket/assets/140022499/a4b2e6d7-260f-4b8c-ab60-413dcbc0bc23)
+
+
 ## How to run the tests?
 
 1.  Navigate to the users or notification project and run next command:
 
          php artisan test
 
-![Screenshot 2023-07-25 at 20 44 15](https://github.com/nmpashovbg/nextbasket/assets/140022499/4fb4f9d9-eb17-4656-8a9f-b7e40c475d57)
+        ![Screenshot 2023-07-25 at 20 44 15](https://github.com/nmpashovbg/nextbasket/assets/140022499/4fb4f9d9-eb17-4656-8a9f-b7e40c475d57)
 
-![Screenshot 2023-07-25 at 20 44 45](https://github.com/nmpashovbg/nextbasket/assets/140022499/bd35e108-674b-47c7-a470-304725349d9e)
+        ![Screenshot 2023-07-25 at 20 44 45](https://github.com/nmpashovbg/nextbasket/assets/140022499/bd35e108-674b-47c7-a470-304725349d9e)
 
