@@ -25,7 +25,10 @@ Open the `.env` file with your favorite editor and set the values for `RABBITMQ_
         RABBITMQ_USER=username  
         RABBITMQ_PASSWORD=password  
 
-5. **Start the Microservice:**
+5. **Run next command:**   
+        composer install
+   
+6. **Start the Microservice:**
 ./vendor/bin/sail up
 
 
@@ -43,10 +46,13 @@ Open the `.env` file with your favorite editor and set the values for `RABBITMQ_
         Example:  
         
         RABBITMQ_USER=username  
-        RABBITMQ_PASSWORD=password  
+        RABBITMQ_PASSWORD=password
 
-4. **Start the Microservice:**
-./vendor/bin/sail up
+5. **Run next command:**   
+        composer install 
+
+6. **Start the Microservice:**
+        ./vendor/bin/sail up
 
 ## RabbitMQ Command Listener
 
