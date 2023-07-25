@@ -25,8 +25,7 @@ Open the `.env` file with your favorite editor and set the values for `RABBITMQ_
         RABBITMQ_USER=username  
         RABBITMQ_PASSWORD=password  
 
-5. **Run next command:**   
-        ```composer install```
+5. **Run next command:**   ```composer install```
    
 6. **Start the Microservice:**
         ```./vendor/bin/sail up```
@@ -48,8 +47,7 @@ Open the `.env` file with your favorite editor and set the values for `RABBITMQ_
         RABBITMQ_USER=username  
         RABBITMQ_PASSWORD=password
 
-5. **Run next command:**   
-        ```composer install```
+5. **Run next command:**   ```composer install```
 
 6. **Start the Microservice:**
         ```./vendor/bin/sail up```
