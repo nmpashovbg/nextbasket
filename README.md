@@ -75,4 +75,7 @@ Now both microservices are set up and ready to be used.
 
          php artisan test
 
+![Screenshot 2023-07-25 at 20 44 15](https://github.com/nmpashovbg/nextbasket/assets/140022499/4fb4f9d9-eb17-4656-8a9f-b7e40c475d57)
+
+![Screenshot 2023-07-25 at 20 44 45](https://github.com/nmpashovbg/nextbasket/assets/140022499/bd35e108-674b-47c7-a470-304725349d9e)
 
