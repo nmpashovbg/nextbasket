@@ -7,13 +7,13 @@ We've got two microservices
 ## Users Microservice Installation
 
 1. **Clone the Repository:**
-git clone <repository_url>
+        ```git clone https://github.com/nmpashovbg/nextbasket.git```
 
 2. **Navigate to Users Microservice:**
-cd users
+        ```cd users```
 
 3. **Create Environment File:**
-cp .env.example .env
+        ```cp .env.example .env```
 
 4. **Edit .env File:**
 Open the `.env` file with your favorite editor and set the values for `RABBITMQ_USER` and `RABBITMQ_PASSWORD`.
@@ -26,19 +26,19 @@ Open the `.env` file with your favorite editor and set the values for `RABBITMQ_
         RABBITMQ_PASSWORD=password  
 
 5. **Run next command:**   
-        composer install
+        ```composer install```
    
 6. **Start the Microservice:**
-./vendor/bin/sail up
+        ```./vendor/bin/sail up```
 
 
 ## Notifications Microservice Installation
 
 1. **Navigate to Notifications Microservice:**
-cd notifications
+        ```cd notifications```
 
 2. **Create Environment File:**
-cp .env.example .env
+        ```cp .env.example .env```
 
 3. **Edit .env File:**
 Open the `.env` file with your favorite editor and set the values for `RABBITMQ_USER` and `RABBITMQ_PASSWORD`.
@@ -49,15 +49,15 @@ Open the `.env` file with your favorite editor and set the values for `RABBITMQ_
         RABBITMQ_PASSWORD=password
 
 5. **Run next command:**   
-        composer install 
+        ```composer install```
 
 6. **Start the Microservice:**
-        ./vendor/bin/sail up
+        ```./vendor/bin/sail up```
 
 ## RabbitMQ Command Listener
 
 Once the Docker containers are up and running, you can enable the RabbitMQ command listener for the Notifications microservice. Run the following command within the `notifications` folder:
-php artisan rabbitmq:consumer
+        ```php artisan rabbitmq:consumer```
 
 This will start the command listener and allow the Notifications microservice to communicate with RabbitMQ.
 
